@@ -1,0 +1,187 @@
+[
+  {
+    "type": "domain",
+    "value": "favicon.ico",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://feodotracker.abuse.ch/blocklist/",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "bootstrap.min.css",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "jumbotron.css",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "custom.css",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://www.googletagmanager.com/gtag/js?id=G-ZLNX75FVG6",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "window.datalayer",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "datalayer.push",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "mcafee.png",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "paloalto.png",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "ipblocklist.csv",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "ipblocklist.json",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "ipblocklist.txt",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "http://suricata-ids.org/",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://www.snort.org/",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "feodotracker.rules",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "feodotracker.tar.gz",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "tar.gz",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "tar.gz",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "tar.gr",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://creativecommons.org/share-your-work/public-domain/cc0",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "abuse.ch",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://x.com/abuse_ch",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "http://www.w3.org/2000/svg",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://www.linkedin.com/company/abuse-ch/",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "http://www.w3.org/2000/svg",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://ioc.exchange/@abuse_ch",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "http://www.w3.org/2000/svg",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://bsky.app/profile/abuse-ch.bsky.social",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "abuse-ch.bsky.social",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "http://www.w3.org/2000/svg",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://abuse.ch/terms-and-conditions/",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://abuse.ch/terms-of-use/",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://abuse.ch/privacy-policy/",
+    "hash_algo": null
+  },
+  {
+    "type": "url",
+    "value": "https://abuse.ch/cookie-policy/",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "jquery-3.3.1.min.js",
+    "hash_algo": null
+  },
+  {
+    "type": "domain",
+    "value": "bootstrap.bundle.min.js",
+    "hash_algo": null
+  }
+]

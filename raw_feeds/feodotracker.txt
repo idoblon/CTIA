@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Download Feodo Tracker's blocklist to protect your network from Dridex, TrickBot, QakBot, Emotet and BazarLoader">
+    <meta name="keywords" content="malware, botnets, ioc, list, botnet, tracker, heodo, emotet, blocklist, blacklist, download, suricata, snort, ids, c2, QakBot, QuakBot, Qbot, json, csv, indicator of compromise, BazarLoader, BazarBackdoor" />
+    <link rel="icon" href="/favicon.ico">
+    <link rel="canonical" href="https://feodotracker.abuse.ch/blocklist/" />
+    <title>Feodo Tracker | Blocklist</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="/css/jumbotron.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLNX75FVG6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZLNX75FVG6');
+    </script>
+  </head>
+
+  <body>
+    <header class="fixed-top">
+      <div class="d-flex justify-content-center align-items-center temp-banner">
+        <div class="container d-flex justify-content-center align-items-center">
+          <p style="margin-bottom: 0 !important; text-align: center">
+            <strong>Empty datasets</strong> | Our Feodo Tracker datasets are currently empty.
+            <a href="/faq/" target="_parent">Read this</a> to learn  why.
+          </p>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-md navbar-dark bg-green">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <img src="/images/feodotracker_logo.svg" style="height: 50px" alt="Feodo Tracker">
+          </a>
+          <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/mitigate/" title="Mitigate Emotet">Mitigate</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/browse/" title="Browse Feodo Tracker">Browse</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/blocklist/" title="Blocklist">Blocklist</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/statistics/" title="Statistics">Statistics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/faq/" title="FAQ">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about/" title="About">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1 class="mt-5">Blocklist</h1>
+      <p>Feodo Tracker offers various blocklist in different formats for different purposes. The blacklists are documented below.</p>
+      <div class="list-group">
+       <a href="#ip-blocklist" class="list-group-item list-group-item-action">Botnet C2 IP Blocklist</a>
+       <a href="#iocs" class="list-group-item list-group-item-action">Botnet C2 Indicators Of Compromise (IOCs)</a>
+       <a href="#ip-ids" class="list-group-item list-group-item-action">Suricata Botnet C2 IP Ruleset</a>
+       <a href="#tos" class="list-group-item list-group-item-action">Terms of Services</a>
+      </div>
+      <section id="ip-blocklist">
+        <h2>Botnet C2 IP Blocklist</h2>
+        <hr>
+        <p>Dridex, Heodo (aka Emotet), TrickBot, QakBot (aka QuakBot / Qbot) and BazarLoader (aka BazarBackdoor) botnet command&amp;control servers (C2s) usually reside on compromised servers and such that have been rented and setup by the threat actor itself for the sole purpose of botnet hosting. Feodo Tracker offers a blocklist of IP addresses that are associated with such botnet C2s. It can be used to block botnet C2 traffic from infected machines towards hostline servers on the internet that are under the control of cybercriminals.
+
+        <p>To keep the false positive rate as low as possible, <strong>an IP address will only get added to the blocklist if it responds with a valid botnet C2 response</strong></p>
+        <p>The Botnet C2 IP Blocklist gets <strong>generated every 5 minutes</strong> and is available in the plain-text and JSON format. We recommend you to update the list at <strong>least every 15 minutes</strong> (or even better: every 5 minutes) to receive the best protection against Dridex, Emotet, TrickBot, QakBot and BazarLoader.</p>
+        <div class="alert alert-success mt-4" role="alert">
+          <h4 class="alert-heading">Recommended IP blocklist</h4>
+          If you want to block botnet C&amp;C IP addresses but avoid false positives, I highly recommend you to use the following blocklist as it only contains <strong>active</strong> botnet C&amp;C servers or such that have been active in the past hours. Although false positives can happen on this blocklist, the false positive rate should be low.</p>
+          <p><a class="btn btn-primary" href="/downloads/ipblocklist_recommended.txt" title="download Botnet C2 IP Blacklist (recommended)" target="_parent" role="button">Plain-Text</a> <a class="btn btn-primary" href="/downloads/ipblocklist_recommended.json" title="download Botnet C2 IP Blacklist (recommended) in JSON format" target="_parent" role="button">JSON</a></p>
+        </div>
+
+        <p>We also have custom formats of the blocklist available for <kdb>McAfee Web Gateway</kdb> and <kdb>Palo Alto Firewall</kdb>:</p>
+        <p><a class="btn btn-primary" href="/downloads/ipblocklist_recommended_mcafee.txt" title="Feodo Tracker Blocklsit for McAfee Web Gateway" target="_parent" role="button"><img src="/images/icons/mcafee.png" width="16px" height=16px" alt="McAfee"> McAfee Web Gateway</a> <a class="btn btn-primary" href="/downloads/ipblocklist_recommended_paloalto.txt" title="Feodo Tracker blocklist for Palo Alto Firewall" target="_parent" role="button"><img src="/images/icons/paloalto.png" width="16px" height=16px" alt="Palo Alto"> Palo Alto Firewall</a></p>
+      </section>
+
+      <section id="iocs">
+        <h2>Botnet C2 Indicators Of Compromise (IOCs)</h2>
+        <hr>
+        <p>If you have a SIEM (Security Information and Event Management) product, you can enrich it with data from Feodo Tracker to get alerted about potential botnet C2 traffic leaving your network. Unlike the IP blocklist above, these datasets do not only contain additional information on tracked botnet C2s but also IP addresses that were acting as a botnet C2 within the <strong>past 30 days</strong>.</p>
+        <p><a class="btn btn-primary" href="/downloads/ipblocklist.csv" title="download Botnet C2 IP Blacklist (CSV)" target="_parent" role="button">Download CSV</a> <a class="btn btn-primary" href="/downloads/ipblocklist.json" title="download Botnet C2 IP Blacklist (JSON)" target="_parent" role="button">Download JSON</a> <a class="btn btn-primary" href="/downloads/ipblocklist.txt" title="download Botnet C2 IP Blacklist (IPs only)" target="_parent" role="button">Download IPs only</a></p>
+        <br />
+        <p>In case you want to get a comprehensive list of <strong>all botnet C2s Feodo Tracker has ever seen</strong>, you may use the IoC list below. However, as IP addresses are being re-used/recycled, the false positive of this dataset is much higher.</p>
+        <p><a class="btn btn-primary" href="/downloads/ipblocklist_aggressive.csv" title="download Botnet C2 IP Blacklist (CSV) - Aggressive" target="_parent" role="button">Download CSV (Aggressive)</a> <a class="btn btn-primary" href="/downloads/ipblocklist_aggressive.txt" title="download Botnet C2 IP Blacklist (CSV)" target="_parent" role="button">Download IPs only (Aggressive)</a></p>
+        <div class="alert alert-warning" role="alert">
+          <h4 class="alert-heading">Caution</h4>
+          <p>I strongly recommend you to <strong>not use the aggressive version</strong> of the Botnet C2 Indicators Of Compromise (IOCs) as it definitely <strong>will cause false positives</strong>.</p>
+        </div>
+      </section>
+
+      <section id="ip-ids">
+        <h2>Suricata Botnet C2 IP Ruleset</h2>
+        <hr>
+        <p>The Suricata Botnet C2 IP Ruleset contains botnet C2s tracked by Feodo Tracker and can be used for both, <a href="http://suricata-ids.org/" target="_blank" title="Suricata IDS/IPS">Suricata</a> and <a href="https://www.snort.org/" target="_blank" title="Snort IDS/IPS">Snort</a> open source IDS/IPS. If you are running Suricata or Snort, you can use this ruleset to detect and/or block network connections towards hostline servers (IP address:port combination).</p>
+        <p>The ruleset gets <strong>generated every 5 minutes</strong>. We recommend you to update the IDS ruleset at <strong>least every 15 minutes</strong> (or even better: every 5 minutes) to receive the best protection against Dridex, Emotet, TrickBot, QakBot and BazarLoader.</p>
+        <div class="alert alert-info" role="alert">
+          <h4 class="alert-heading">Note</h4>
+          <p>As IP addresses are getting recycled and reused, this blocklist only botnet C2s that are either active or that have been last seen in the <strong>past 30 days</strong>. The false positive rate for this blocklist should therefore be low.</p>
+        </div>
+        <p><a class="btn btn-primary" href="/downloads/feodotracker.rules" title="download Suricata IDS Ruleset" target="_parent" role="button">Download IDS Ruleset (Suricata and Snort)</a></p>
+        <p><a class="btn btn-primary" href="/downloads/feodotracker.tar.gz" title="download Suricata IDS Ruleset - tar.gz" target="_parent" role="button">Download IDS Ruleset (Suricata and Snort) - tar.gz</a></p>
+        <br />
+        <p>In case you want to get a comprehensive list of <strong>all botnet C2s Feodo Tracker has ever seen</strong>, you may use the IDS ruleset below. However, as IP addresses are being re-used/recycled, the false positive of this dataset is much higher.</p>
+        <p><a class="btn btn-primary" href="/downloads/feodotracker_aggressive.rules" title="download Suricata IDS Ruleset (Aggressive)" target="_parent" role="button">Download IDS Ruleset (Aggressive)</a></p>
+        <p><a class="btn btn-primary" href="/downloads/feodotracker_aggressive.tar.gz" title="download Suricata IDS Ruleset (Aggressive)" target="_parent" role="button">Download IDS Ruleset (Aggressive) - tar.gr</a></p>
+        <div class="alert alert-warning" role="alert">
+          <h4 class="alert-heading">Caution</h4>
+          <p>I strongly recommend you to <strong>not use the aggressive version</strong> of the Botnet C2 Indicators Of Compromise (IOCs) as it definitely <strong>will cause false positives</strong>.</p>
+        </div>
+      </section>
+      <section id="tos">
+        <h2>Terms of Services (ToS)</h2>
+        <hr>
+        <p>By using the website of Feodo Tracker, or any of the services / datasets referenced above, you agree that:</p>
+        <ul>
+          <li>All datasets offered by Feodo Tracker can be used for both, commercial and non-commercial purpose without any limitations (<a href="https://creativecommons.org/share-your-work/public-domain/cc0" target="_blank" title="CC0 - No Rights Reserved">CC0</a>)</li>
+          <li>Any data offered by Feodo Tracker is served <em>as it is</em> on best effort</li>
+          <li>abuse.ch can not be held liable for any false positive or damage caused by the use of the website or the datasets offered above</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="content-container">
+        <div class="d-block d-md-flex align-items-center">
+          <div class="d-flex gap-4 social-links">
+            <a href="https://x.com/abuse_ch" rel="noopener" target="_blank">
+              <svg
+                height="24"
+                width="24"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/abuse-ch/"
+              rel="noopener"
+              target="_blank"
+            >
+              <svg
+                height="24"
+                width="24"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+                />
+              </svg>
+            </a>
+            <a href="https://ioc.exchange/@abuse_ch" rel="noopener" target="_blank">
+              <svg
+                height="24"
+                width="24"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54a102.5 102.5 0 0 1 -.9-13.9c85.6 20.9 158.7 9.1 178.8 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.3V197c0-58.5-64-56.6-64-6.9v114.2H90.2c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://bsky.app/profile/abuse-ch.bsky.social"
+              rel="noopener"
+              target="_blank"
+            >
+              <svg
+                height="24"
+                width="24"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 353.1 304.5c102.9 17.5 129.1 75.5 72.5 133.5c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.6-7.8-3.3-7.8s-1.6 3-3.3 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-58-30.4-116 72.5-133.5C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z"
+                />
+              </svg>
+            </a>
+          </div>
+          <div class="footer-policies md:flex-row col">
+            <a href="https://abuse.ch/terms-and-conditions/" class="nav-link-w">Terms and Conditions</a>
+            <span class="d-md-block d-none">|</span>
+            <a href="https://abuse.ch/terms-of-use/" class="nav-link-w">Terms of Use</a>
+            <span class="d-md-block d-none">|</span>
+            <a href="https://abuse.ch/privacy-policy/" class="nav-link-w">Privacy Policy</a>
+            <span class="d-md-block d-none">|</span>
+            <a href="https://abuse.ch/cookie-policy/" class="nav-link-w">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

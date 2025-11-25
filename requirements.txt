@@ -1,0 +1,7 @@
+python-dotenv
+requests
+streamlit
+pandas
+tqdm
+validators
+python-dateutil
