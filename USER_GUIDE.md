@@ -256,17 +256,80 @@ Check API keys are configured:
 python -c "from app.config import VT_API_KEY, ABUSEIPDB_KEY, OTX_KEY; print(f'VT: {bool(VT_API_KEY)}, Abuse: {bool(ABUSEIPDB_KEY)}, OTX: {bool(OTX_KEY)}')"
 ```
 
-## Best Practices
+## Best Practices (Manual Mode)
 
-1. **Daily Collection**: Run `python -m app.main run_all` daily
+1. **Daily Collection**: Run `python -m app.main run_all` daily (or use automation)
 2. **Batch Enrichment**: Enrich in small batches (50-100) to respect rate limits
 3. **Regular Scoring**: Score after enrichment
 4. **Database Maintenance**: Vacuum and rebuild indexes weekly
 5. **Backups**: Create backups before major operations
 6. **Data Retention**: Clean up old IOCs monthly
 
-## Next Steps (Phase 8+)
 
-- **Phase 8**: Visualization dashboard (already have Streamlit)
-- **Phase 9**: Automation (cron jobs, scheduled tasks)
+## Phase 8: Automation ✅
+
+**Automated Scheduling:**
+- Daily threat feed collection
+- Daily IOC enrichment
+- Daily scoring
+- Weekly database maintenance
+- Periodic high-threat alerts
+
+**Commands:**
+```bash
+# Start the automation scheduler
+python -m app.main scheduler
+
+# Test individual tasks
+python automation/tasks.py collect_feeds
+python automation/tasks.py enrich_iocs
+python automation/tasks.py score_iocs
+python automation/tasks.py database_maintenance
+python automation/tasks.py check_high_threats
+
+# Test alerting system
+python automation/alerting.py 75
+```
+
+**Scheduled Jobs:**
+1. **Daily Feed Collection** - 2:00 AM
+2. **Daily Enrichment** - 3:00 AM (50 IOCs)
+3. **Daily Scoring** - 4:00 AM
+4. **Weekly DB Maintenance** - Sunday 1:00 AM
+5. **High Threat Checks** - Every 6 hours
+
+**Email Alerts (Optional):**
+
+To enable email alerts, add to `.env`:
+```bash
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USERNAME=your_email@gmail.com
+SMTP_PASSWORD=your_app_password
+ALERT_EMAIL_FROM=ctia@yourdomain.com
+ALERT_EMAIL_TO=admin@yourdomain.com
+```
+
+**Configuration:**
+
+Edit `.env` to customize:
+```bash
+AUTOMATION_ENABLED=true
+ENRICHMENT_BATCH_SIZE=50
+ALERT_THRESHOLD=75
+```
+
+## Best Practices
+
+1. **Automated Collection**: Run scheduler 24/7 for continuous monitoring
+2. **Batch Enrichment**: Scheduler handles rate limiting automatically
+3. **Regular Scoring**: Automated daily scoring keeps threat scores current
+4. **Database Maintenance**: Weekly automated vacuum and index rebuild
+5. **Backups**: Create backups before major operations
+6. **Data Retention**: Clean up old IOCs monthly
+7. **Monitor Alerts**: Check console/email for high-severity threats
+
+## Next Steps (Phase 9+)
+
+- **Phase 9**: Enhanced visualization dashboard
 - **Phase 10**: Reports, ML anomaly detection, SIEM integration

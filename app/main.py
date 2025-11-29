@@ -5,6 +5,7 @@ python -m app.main run_all
 python -m app.main fetch
 python -m app.main normalize
 python -m app.main ingest
+python -m app.main scheduler
 """
 import sys
 from app.core.threat_feeds import fetch_all_feeds, RAW_DIR
@@ -26,7 +27,7 @@ def run_all():
 def main(argv=None):
     argv = argv or sys.argv[1:]
     if not argv:
-        print('Usage: run_all | fetch | normalize | ingest')
+        print('Usage: run_all | fetch | normalize | ingest | scheduler')
         return
     cmd = argv[0]
     if cmd == 'run_all':
@@ -37,6 +38,10 @@ def main(argv=None):
         normalize_all_feeds()
     elif cmd == 'ingest':
         initialize_database(); ingest_normalized()
+    elif cmd == 'scheduler':
+        # Import here to avoid circular imports
+        from automation.scheduler import run_scheduler
+        run_scheduler()
     else:
         print('Unknown command')
 

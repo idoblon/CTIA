@@ -127,7 +127,35 @@ The Cyber Threat Intelligence Automation (CTIA) system is a Python-based platfor
        │
        ▼
 ┌─────────────────────────────────────────────────────────┐
-│          PHASE 8: VISUALIZATION (Dashboard)             │
+│          PHASE 8: AUTOMATION (Scheduling)               │
+│                                                          │
+│  ┌────────────────────────────────────────────────┐    │
+│  │  automation/scheduler.py (APScheduler)         │    │
+│  │  • Background task scheduler                   │    │
+│  │  • Cron-style job scheduling                   │    │
+│  │  • Job management (pause/resume)               │    │
+│  └────────────────────────────────────────────────┘    │
+│                                                          │
+│  ┌────────────────────────────────────────────────┐    │
+│  │  automation/tasks.py                           │    │
+│  │  • Daily feed collection (2:00 AM)             │    │
+│  │  • Daily enrichment (3:00 AM)                  │    │
+│  │  • Daily scoring (4:00 AM)                     │    │
+│  │  • Weekly DB maintenance (Sunday 1:00 AM)      │    │
+│  │  • High threat checks (every 6 hours)          │    │
+│  └────────────────────────────────────────────────┘    │
+│                                                          │
+│  ┌────────────────────────────────────────────────┐    │
+│  │  automation/alerting.py                        │    │
+│  │  • Console alerts                              │    │
+│  │  • Email alerts (optional)                     │    │
+│  │  • High-severity threat detection              │    │
+│  └────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌─────────────────────────────────────────────────────────┐
+│          PHASE 9: VISUALIZATION (Dashboard)             │
 │                                                          │
 │  ┌────────────────────────────────────────────────┐    │
 │  │  dashboard.py (Streamlit)                      │    │
@@ -158,7 +186,13 @@ The Cyber Threat Intelligence Automation (CTIA) system is a Python-based platfor
 5. SCORING
    metadata → scoring.py → threat scores → cti.db
 
-6. VISUALIZATION
+6. AUTOMATION
+   scheduler.py → scheduled tasks → automated collection/enrichment/scoring
+
+7. ALERTING
+   cti.db → alerting.py → console/email alerts
+
+8. VISUALIZATION
    cti.db → dashboard.py → Web UI
 ```
 
@@ -181,6 +215,14 @@ The Cyber Threat Intelligence Automation (CTIA) system is a Python-based platfor
 | `database.py` | DB initialization | `initialize_database()`, `ingest_normalized()` |
 | `db_queries.py` | Query utilities | `get_statistics()`, `search_iocs()` |
 | `db_maintenance.py` | Maintenance | `vacuum_database()`, `export_to_csv()` |
+
+### Automation Modules (`automation/`)
+
+| Module | Purpose | Key Functions |
+|--------|---------|---------------|
+| `scheduler.py` | APScheduler configuration | `start_scheduler()`, `stop_scheduler()`, `list_jobs()` |
+| `tasks.py` | Scheduled automation tasks | `task_collect_feeds()`, `task_enrich_iocs()`, `task_score_iocs()` |
+| `alerting.py` | Alert system | `check_and_alert()`, `send_email_alert()` |
 
 ### Dashboard (`app/dashboard/`)
 

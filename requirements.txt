@@ -5,3 +5,8 @@ pandas
 tqdm
 validators
 python-dateutil
+apscheduler
+plotly
+reportlab
+scikit-learn
+numpy
